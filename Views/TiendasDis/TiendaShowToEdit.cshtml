@@ -1,0 +1,22 @@
+@{
+    ViewData["Title"] = "Editar Sucursal";
+}
+<div class="text-center">
+<h1>Editar Sucursal</h1>
+</div>
+<form asp-controller="TiendasDis" asp-action="SucursalEdit">
+<div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Escriba el nombre de la sucursal" />
+        <label for="Matricula" class="form-label">Direccion</label>
+        <input type="text" class="form-control" id="Direccion" name="Direccion" placeholder="Escriba la Direccion" />
+        <label for="Carrera" class="form-label">Gerente de la sucursal</label>
+        <input type="text" class="form-control" id="Gerente" name="Gerente" placeholder="Escriba el nombre de el gerente" />
+        <label for="Edad" class="form-label">Telefono de la Sucursal</label>
+        <input type="text" class="form-control" id="Telefono" name="Telefono" placeholder="Escriba el Telefono" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Editar</button>
+    <a class="btn btn-secundary" asp-controller="TiendasDis" asp-action="TiendaList">Cancelar</button></a>
+
+</form>

@@ -1,0 +1,50 @@
+@model List<SucursalModel>
+
+@{
+    ViewData["Title"] = "Listado de Sucursales";
+}
+<h2></h2>
+<div class="text-center">
+<h1>Listado de Sucursales</h1>
+<h1 class = "display-2">Listado de Sucursales</h1>
+<a asp-action="TiendaAdd" asp-controller="TiendasDis" class="btn btn-primary mb-3"> Agregar Sucursal</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Acciones</th>
+            <th>Nombre</th>
+            <th>Direccion</th>
+            <th>Gerente</th>
+            <th>Telefono</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var Sucu in Model)
+        {
+            <tr>
+                <td>
+                    <a class="btn btn-primary" asp-controller="TiendasDis" asp-action="TiendaShowToEdit">Editar</a>
+                    <a class="btn btn-danger" asp-controller="TiendasDis" asp-action="TiendaShowToDeleted">Borrar</a>
+                </td>
+                <td>
+                    @Sucu.Name
+                </td>
+                <td>
+                    @Sucu.direccion
+                </td>
+                <td>
+                    @Sucu.gerenteSuc
+                </td>
+                <td>
+                    @Sucu.telefono
+                </td>
+                
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+
+
+    </tfoot>
+</table>

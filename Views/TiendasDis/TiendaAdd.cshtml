@@ -1,0 +1,20 @@
+@{
+    ViewData["Title"] = "Alta de Sucursal";
+}
+<h1>Agregar sucursal</h1>
+<form asp-controller="TiendasDis" asp-action="TiendaAdd">
+<div class="mb-3">
+        <label for="Name" class="form-label">Nombre de la sucursal</label>
+        <input type="text" class="form-control" id="Name" name="Name" placeholder="Escriba el nombre de la sucursal" />
+        <label for="direccion" class="form-label">Direccion</label>
+        <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Escriba la Direccion" />
+        <label for="gerenteSuc" class="form-label">Gerente de la sucursal</label>
+        <input type="text" class="form-control" id="gerenteSuc" name="gerenteSuc" placeholder="Escriba el nombre de el gerente" />
+        <label for="telefono" class="form-label">Telefono de la Sucursal</label>
+        <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Escriba el Telefono" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <a class="btn btn-secundary" asp-controller="TiendasDis" asp-action="TiendaList">Cancelar</button></a>
+
+</form>

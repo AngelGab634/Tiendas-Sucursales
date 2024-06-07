@@ -1,0 +1,12 @@
+@model SucursalModel
+
+<h3 class="mb-3">¿Estás seguro que deseas borrar la sucursal?</h3>
+
+<form asp-controller="TiendasDis" asp-action="TiendaDeleted" method="post">
+    <h2>Información de la sucursal</h2>
+    <h1>Producto: @Model.Name con dirección en @Model.direccion y teléfono @Model.telefono</h1>
+
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Borrar</button>
+    <a class="btn btn-secondary" asp-controller="TiendasDis" asp-action="TiendaList">Cancelar</a>
+</form>

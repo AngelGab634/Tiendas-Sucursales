@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Tiendas;
 
@@ -11,9 +12,11 @@ using Tiendas;
 namespace Tiendas.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240612181305_Categorias")]
+    partial class Categorias
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -28,9 +31,6 @@ namespace Tiendas.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("CategoriaId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -41,8 +41,6 @@ namespace Tiendas.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoriaId");
-
                     b.ToTable("Categorias");
                 });
 
@@ -50,9 +48,6 @@ namespace Tiendas.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("CategoriaId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Name")
@@ -72,30 +67,7 @@ namespace Tiendas.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoriaId");
-
                     b.ToTable("Sucursales");
-                });
-
-            modelBuilder.Entity("Tiendas.Entities.Categoria", b =>
-                {
-                    b.HasOne("Tiendas.Entities.Categoria", null)
-                        .WithMany("Categorias")
-                        .HasForeignKey("CategoriaId");
-                });
-
-            modelBuilder.Entity("Tiendas.Entities.Sucursal", b =>
-                {
-                    b.HasOne("Tiendas.Entities.Categoria", "Categoria")
-                        .WithMany()
-                        .HasForeignKey("CategoriaId");
-
-                    b.Navigation("Categoria");
-                });
-
-            modelBuilder.Entity("Tiendas.Entities.Categoria", b =>
-                {
-                    b.Navigation("Categorias");
                 });
 #pragma warning restore 612, 618
         }

@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<ApplicationDbContext>(opc =>
-opc.UseSqlServer("name=SQLSucursales"));
+opc.UseSqlServer("name=SQLEmploy"));
 
 var app = builder.Build();
 

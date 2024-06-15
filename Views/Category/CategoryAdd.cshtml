@@ -1,0 +1,17 @@
+@{
+    ViewData["Title"] = "Alta de Categoria";
+}
+<h1>Agregar sucursal</h1>
+<form asp-controller="Category" asp-action="CategoryAdd" method="post">
+    <div class="mb-3">
+        <label for="Name" class="form-label">Nombre de la Categoría</label>
+        <input type="text" class="form-control" id="Name" name="Name" placeholder="Escriba el nombre de la categoría" />
+    </div>
+    <div class="mb-3">
+        <label for="descripcion" class="form-label">Descripción</label>
+        <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Escriba la descripción" />
+
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <a class="btn btn-secondary" asp-controller="Category" asp-action="CategoryList">Cancelar</a>
+</form>

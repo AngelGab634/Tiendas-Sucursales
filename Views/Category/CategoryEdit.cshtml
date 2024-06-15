@@ -1,0 +1,24 @@
+@model CategoryModel
+
+@{
+    ViewData["Title"] = "Editar Categoria";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="CategoryEdit" asp-controller="Category">
+    <input type="hidden">
+    
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" asp-for="Name" placeholder="Nombre de la Categoria">
+        <label asp-for="Name">Nombre del producto</label>
+    </div>
+
+     <div class="form-floating mb-3">
+        <input type="textarea" class="form-control" asp-for="descripcion" rows="5">
+        <label asp-for="descripcion">Descripcion</label>
+    </div>
+
+    <button class="btn btn-outline-primary">Guardar</button>
+    <a class="btn btn-outline-secondary" asp-action="CategoryList" asp-controller="Category">Cancelar</a>
+</form>

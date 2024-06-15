@@ -1,12 +1,13 @@
-namespace Tiendas.Entities
-{
-    public class Sucursal
-    {
-        public Sucursal()
-        {
-            
-        }
+using Tiendas.Entities;
 
+namespace Tiendas.Models
+{
+    public class SucursalModel
+    {
+        public SucursalModel ()
+        {
+
+        }
         public Guid Id { get; set; }
         public string Name { get; set; }
 
@@ -19,7 +20,6 @@ namespace Tiendas.Entities
         public Guid? CategoriaId { get; set; }
 
         public Categoria? Categoria { get; set; }
-
 
     }
 }

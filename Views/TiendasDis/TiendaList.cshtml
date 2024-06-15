@@ -24,8 +24,8 @@
         {
             <tr>
                 <td>
-                    <a class="btn btn-primary" asp-controller="TiendasDis" asp-action="TiendaShowToEdit">Editar</a>
-                    <a class="btn btn-danger" asp-controller="TiendasDis" asp-action="TiendaShowToDeleted">Borrar</a>
+                    <a class="btn btn-primary" asp-controller="TiendasDis" asp-action="TiendaShowToEdit" asp-route-Id="@Sucu.Id">Editar</a>
+                    <a class="btn btn-danger" asp-controller="TiendasDis" asp-action="TiendaShowToDeleted" asp-route-Id="@Sucu.Id">Borrar</a>
                 </td>
                 <td>
                     @Sucu.Name

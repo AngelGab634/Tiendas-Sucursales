@@ -10,5 +10,7 @@ namespace Tiendas
         }
 
         public DbSet<Sucursal> Sucursales{ get; set; }
+
+        public DbSet<Categoria> Categorias{ get; set; }
     }
 }

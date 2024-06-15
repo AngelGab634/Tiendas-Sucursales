@@ -75,7 +75,7 @@ namespace Tiendas.Controllers
 
         public IActionResult TiendaShowToEdit(Guid id)
         {
-            var sucursal =_context.Sucursales.FirstOrDefault(p=>p.Id==id);
+              var sucursal =_context.Sucursales.FirstOrDefault(p=>p.Id==id);
             if(sucursal == null)
             {
                 return RedirectToAction("TiendaList");
@@ -83,12 +83,13 @@ namespace Tiendas.Controllers
 
             var model = new SucursalModel
             {
-                Id =sucursal.Id,
-                Name=sucursal.Name,
-                direccion=sucursal.direccion,
-                gerenteSuc=sucursal.gerenteSuc,
-                telefono=sucursal.telefono
+                Id = sucursal.Id,
+                Name = sucursal.Name,
+                direccion = sucursal.direccion,
+                gerenteSuc = sucursal.gerenteSuc,
+                telefono = sucursal.telefono,
             };
+
             return View(model);
         }
 
@@ -116,7 +117,7 @@ namespace Tiendas.Controllers
         public IActionResult TiendaDeleted(Guid id)
         {
             var sucursal =_context.Sucursales.FirstOrDefault(p=>p.Id == id);
-            if(sucursal == null)
+            if(sucursal != null)
             {
                 _context.Sucursales.Remove(sucursal);
                 _context.SaveChanges();
@@ -125,14 +126,26 @@ namespace Tiendas.Controllers
             return RedirectToAction("TiendaList");
         }
 
-        public IActionResult SucursalEdit(Guid id)
+       [HttpPost]
+        public IActionResult SucursalEdit(SucursalModel model)
         {
-            var sucursal =_context.Sucursales.FirstOrDefault(p=>p.Id==id);
-            if(sucursal == null)
+               if (ModelState.IsValid)
             {
+                var sucursal = _context.Sucursales.FirstOrDefault(p => p.Id == model.Id);
+                if (sucursal!=null)
+                {
+                    sucursal.Name=model.Name;
+                    sucursal.direccion = model.direccion;
+                    sucursal.gerenteSuc = model.gerenteSuc;
+                    sucursal.telefono=model.telefono;
 
+                    _context.SaveChanges();
+                    return RedirectToAction("TiendaList");
+                }
             }
-            return Redirect("TiendaList");
+
+            return View(model);
+         
         }
 
     }
